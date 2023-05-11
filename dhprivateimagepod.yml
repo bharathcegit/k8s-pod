@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: httpd
+  labels:
+    app: my-httpd
+spec:
+  restartPolicy: Always
+  imagePullSecrets:
+    - name: my-dockerhub-creds
+  containers:
+    - name: httpd-container
+      image: bharathcehub/bharathdhub:v1
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 80
